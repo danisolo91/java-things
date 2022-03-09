@@ -2,40 +2,45 @@ package Exceptions;
 
 public class Exceptions {
 
-	/**
-	 * Las excepciones de tipo Exception hay que comprobarlas, es decir, o bien se
-	 * envuelven con try catch o bien se propaga con throws.
-	 * 
-	 * Las excepciones RuntimeException no es obligatorio comprobarlas, pero si no
-	 * se comprueban el programa se para cuando ocurre este tipo de excepción, por
-	 * eso en este caso no se llega a imprimir "Stop".
-	 */
 	public static void main(String[] args) {
 		System.out.println("Start");
 
-		// Checked exception
+		// Checked
 		try {
-			test();
+			checkedException();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		System.out.println("First exception thrown");
+		System.out.println("Primera excepción capturada, continúa ejecución...");
 
-		// Unchecked exception
-		test2();
+		// Unchecked
+		uncheckedException();
 
 		System.out.println("Stop");
 	}
 
-	// Ex: IOException, ParseException, etc.
-	private static void test() throws Exception {
+	/**
+	 * CHECKED EXCEPTIONS
+	 * 
+	 * Las excepciones de tipo Exception hay que comprobarlas, es decir, o bien se
+	 * envuelven con try catch o bien se propaga con throws.
+	 * 
+	 * Example: IOException, ParseException, etc.
+	 */
+	private static void checkedException() throws Exception {
 		throw new Exception("Checked exception");
 	}
 
-	// Ex: NullPointerException, IndexOutOfBoundsException,
-	// IllegalArgumentException, etc.
-	private static void test2() {
+	/**
+	 * Las excepciones RuntimeException no es obligatorio comprobarlas, pero si no
+	 * se comprueban el programa se para cuando ocurre este tipo de excepción, por
+	 * eso en este caso no se llega a imprimir "Stop".
+	 * 
+	 * Ex: NullPointerException, IndexOutOfBoundsException,
+	 * IllegalArgumentException, etc.
+	 */
+	private static void uncheckedException() {
 		throw new RuntimeException("Unchecked exception");
 	}
 }
